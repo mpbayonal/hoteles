@@ -93,12 +93,7 @@ const LoginPage = () => {
               />
 
               <div>
-                <Checkbox
-                  label="Remember me"
-                  style={styles.checkRemember.style}
-                  labelStyle={styles.checkRemember.labelStyle}
-                  iconStyle={styles.checkRemember.iconStyle}
-                />
+
 
                 <Link to="/">
                   <RaisedButton label="Login"
@@ -110,19 +105,7 @@ const LoginPage = () => {
           </Paper>
 
           <div style={styles.buttonsDiv}>
-            <FlatButton
-              label="Register"
-              href="/"
-              style={styles.flatButton}
-              icon={<PersonAdd />}
-            />
-
-            <FlatButton
-              label="Forgot Password?"
-              href="/"
-              style={styles.flatButton}
-              icon={<Help />}
-            />
+          
           </div>
 
 

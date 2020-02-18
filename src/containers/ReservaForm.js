@@ -67,7 +67,7 @@ const ReservaForm = () => {
 
         <div style={styles.buttons}>
           <Link to="/">
-            <RaisedButton label="Cancel"/>
+            <RaisedButton label="Cancelar"/>
           </Link>
 
           <RaisedButton label="Reservar"
