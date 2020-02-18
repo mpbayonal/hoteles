@@ -9,7 +9,7 @@ const data = {
     { text: 'Inicio', icon: <Assessment/>, link: '/dashboard' },
     { text: 'Nueva Reserva', icon: <Web/>, link: '/form' },
     { text: 'Reservas', icon: <GridOn/>, link: '/table' },
-    { text: 'Login', icon: <PermIdentity/>, link: '/login' }
+    { text: 'Cerrar Sesión', icon: <PermIdentity/>, link: '/login' }
   ],
   tablePage: {
     items: [
