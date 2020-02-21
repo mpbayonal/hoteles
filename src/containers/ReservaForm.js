@@ -10,6 +10,7 @@ import {grey400} from 'material-ui/styles/colors';
 import Divider from 'material-ui/Divider';
 import PageBase from '../components/PageBase';
 
+
 const ReservaForm = () => {
 
   const styles = {
@@ -46,6 +47,7 @@ const ReservaForm = () => {
           floatingLabelText="Habitacion"
           value=""
           fullWidth={true}>
+
           <MenuItem key={0} primaryText="habitacion 1"/>
           <MenuItem key={1} primaryText="Habitacion 2"/>
           <MenuItem key={2} primaryText="Habitacion 3"/>
