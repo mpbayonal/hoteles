@@ -1,6 +1,7 @@
 import React from 'react';
 import Reservas from '../components/dashboard/Reservas';
 import Servicio from "../components/dashboard/Servicio";
+
 import globalStyles from '../styles';
 import Data from '../data';
 
@@ -22,6 +23,7 @@ const Inicio = () => {
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
           <Servicio data={Data.dashBoardPage.recentProducts}/>
         </div>
+        <div>  </div>
 
       </div>
     </div>
