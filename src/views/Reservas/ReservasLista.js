@@ -56,8 +56,8 @@ export default function ReservasLista() {
           <CardBody>
             <TableEditable
               tableHead={[
-                { title: 'Name', field: 'name' },
-                { title: 'Surname', field: 'surname' },
+                { title: 'Nombre del Cliente', field: 'Nombre_Cliente' },
+                { title: 'Habitacion', field: 'habitacion' },
                 { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
                 {
                   title: 'Birth Place',

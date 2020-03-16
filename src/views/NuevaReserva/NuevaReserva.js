@@ -54,6 +54,8 @@ export default function NuevaReserva() {
     const fechaFin = useDispatch();
     return (
         <div>
+
+
             <GridContainer>
                 <GridItem xs={12} sm={12} md={10}>
                     <Card>
@@ -139,6 +141,14 @@ export default function NuevaReserva() {
                             </GridContainer>
 
                             <GridContainer>
+                                <GridItem xs={12} sm={12} md={10}>
+                                    <p className={classes.description}>
+                                        Ver la disponibilidad de la habitacion y añadir la reserva.
+                                    </p>
+                                </GridItem>
+
+                            </GridContainer>
+                            <GridContainer>
                                 <GridItem xs={12} sm={12} md={12}>
                                     <CalendarReservas
                                     />
@@ -146,22 +156,7 @@ export default function NuevaReserva() {
 
 
                             </GridContainer>
-                            <GridContainer>
-                                <GridItem xs={12} sm={12} md={12}>
-                                    <InputLabel style={{ color: "#AAAAAA" }}>About me</InputLabel>
-                                    <CustomInput
-                                        labelText="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."
-                                        id="about-me"
-                                        formControlProps={{
-                                            fullWidth: true
-                                        }}
-                                        inputProps={{
-                                            multiline: true,
-                                            rows: 5
-                                        }}
-                                    />
-                                </GridItem>
-                            </GridContainer>
+
                         </CardBody>
                         <CardFooter>
                             <Button color="primary">Añadir Reserva</Button>

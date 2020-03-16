@@ -38,7 +38,7 @@ import NotificationsPage from "views/Notifications/Notifications.js";
 // core components/views for RTL layout
 
 
-const dashboardRoutes = [
+const hotelesRutas = [
   {
     path: "inicio",
     name: "Dashboard",
@@ -92,4 +92,4 @@ const dashboardRoutes = [
   }
 ];
 
-export default dashboardRoutes;
+export default hotelesRutas;
