@@ -19,11 +19,11 @@ export default function TableEditable(props) {
 
     return (
         <MaterialTable
-            title="Reservas"
+            title=""
             columns={state.columns}
             data={state.data}
             localization={{
-                grouping : { placeholder : "Arrastra el campo que quieres agrupar"},
+                grouping : { placeholder : "Arrastra AQUI el campo que quieres agrupar"},
 
                 header: {actions : "Opciones"},
 

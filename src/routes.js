@@ -77,7 +77,7 @@ const dashboardRoutes = [
   ,
   {
     path: "reserva",
-    name: "Reserva",
+    name: "Crear Reserva",
     icon: LibraryBooks,
     component: NuevaReserva,
     layout: "/"
@@ -86,7 +86,7 @@ const dashboardRoutes = [
   {
     path: "reservas",
     name: "Lista de Reservas",
-    icon: LibraryBooks,
+    icon: "content_paste",
     component: ReservasLista,
     layout: "/"
   }
