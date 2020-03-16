@@ -29,6 +29,7 @@ import DashboardPage from "views/Dashboard/Dashboard.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
 import TableList from "views/TableList/TableList.js";
 import NuevaReserva from "./views/NuevaReserva/NuevaReserva";
+import ReservasLista from "./views/Reservas/ReservasLista";
 
 import Icons from "views/Icons/Icons.js";
 
@@ -76,9 +77,17 @@ const dashboardRoutes = [
   ,
   {
     path: "reserva",
-    name: "reserva",
+    name: "Reserva",
     icon: LibraryBooks,
     component: NuevaReserva,
+    layout: "/"
+  }
+  ,
+  {
+    path: "reservas",
+    name: "Lista de Reservas",
+    icon: LibraryBooks,
+    component: ReservasLista,
     layout: "/"
   }
 ];
