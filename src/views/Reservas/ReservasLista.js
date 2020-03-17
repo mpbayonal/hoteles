@@ -47,7 +47,7 @@ export default function ReservasLista() {
     <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
         <Card>
-          <CardHeader color="primary">
+          <CardHeader color="danger">
             <h4 className={classes.cardTitleWhite}>Lista de Reservas</h4>
             <p className={classes.cardCategoryWhite}>
               Ver todas las reservas.

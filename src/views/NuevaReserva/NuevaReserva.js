@@ -60,7 +60,7 @@ export default function NuevaReserva() {
             <GridContainer>
                 <GridItem xs={12} sm={12} md={10}>
                     <Card>
-                        <CardHeader color="primary">
+                        <CardHeader color="danger">
                             <h4 className={classes.cardTitleWhite}>Nueva Reserva</h4>
                             <p className={classes.cardCategoryWhite}>Elegir las fechas de la reserva.</p>
                         </CardHeader>

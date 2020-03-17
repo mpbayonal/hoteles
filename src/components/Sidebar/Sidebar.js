@@ -81,7 +81,7 @@ export default function Sidebar(props) {
   var brand = (
     <div className={classes.logo}>
       <a
-        href="https://www.creative-tim.com?ref=mdr-sidebar"
+        href="https://www.facebook.com/ed.diazf"
         className={classNames(classes.logoLink)}
         target="_blank"
       >
@@ -109,7 +109,7 @@ export default function Sidebar(props) {
         >
           {brand}
           <div className={classes.sidebarWrapper}>
-          
+
             {links}
           </div>
           {image !== undefined ? (
