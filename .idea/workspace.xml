@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5a9e3444-21a3-4946-9c7b-cef432e97037" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/NuevaReserva/NuevaReserva.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/NuevaReserva/NuevaReserva.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FixedPlugin/FixedPlugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Admin.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +92,7 @@
       <workItem from="1584030075626" duration="249000" />
       <workItem from="1584126999405" duration="996000" />
       <workItem from="1584284437337" duration="678000" />
-      <workItem from="1584333244531" duration="9057000" />
+      <workItem from="1584333244531" duration="11295000" />
     </task>
     <servers />
   </component>
@@ -131,6 +132,10 @@
     <state width="1021" height="166" key="GridCell.Tab.0.right/0.23.1280.693@0.23.1280.693" timestamp="1582318446270" />
     <state width="510" height="166" key="GridCell.Tab.0.right/0.23.1280.696@0.23.1280.696" timestamp="1582398913623" />
     <state width="861" height="166" key="GridCell.Tab.0.right/0.23.1280.700@0.23.1280.700" timestamp="1582485235824" />
+    <state x="199" y="123" width="842" height="482" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1584372777558">
+      <screen x="0" y="23" width="1280" height="706" />
+    </state>
+    <state x="199" y="123" width="842" height="482" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1280.706@0.23.1280.706" timestamp="1584372777558" />
     <state x="186" y="170" key="run.anything.popup" timestamp="1582314934078">
       <screen x="0" y="23" width="1280" height="700" />
     </state>
