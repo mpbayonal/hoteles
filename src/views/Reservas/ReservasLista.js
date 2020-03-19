@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
@@ -41,38 +42,97 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-export default function ReservasLista() {
+export default function ReservasLista(props) {
   const classes = useStyles();
-  return (
-    <GridContainer>
-      <GridItem xs={12} sm={12} md={12}>
-        <Card>
-          <CardHeader color="danger">
-            <h4 className={classes.cardTitleWhite}>Lista de Reservas</h4>
-            <p className={classes.cardCategoryWhite}>
-              Ver todas las reservas.
-            </p>
-          </CardHeader>
-          <CardBody>
-            <TableEditable
-              tableHead={[
-                { title: 'Nombre del Cliente', field: 'Nombre_Cliente' },
-                { title: 'Habitacion', field: 'habitacion' },
-                { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
-                {
-                  title: 'Birth Place',
-                  field: 'birthCity',
-                  lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
-                },
-              ]}
-              tableData={[
-                { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
-                { name: 'Zerya Betül', surname: 'Baran', birthYear: 2017, birthCity: 34 },
-              ]}
-            />
-          </CardBody>
-        </Card>
-      </GridItem>
-    </GridContainer>
-  );
+
+  useEffect(() => {
+    props.fetchReservas()
+
+
+
+  }, []);
+
+  const { reservas, loading, error } = props.reservasList;
+  console.log(props)
+
+  if(loading)
+  {
+    return (
+        <GridContainer>
+          <GridItem xs={12} sm={12} md={12}>
+            <Card>
+              <CardHeader color="danger">
+                <h4 className={classes.cardTitleWhite}>Lista de Reservas</h4>
+                <p className={classes.cardCategoryWhite}>
+                  Ver todas las reservas.
+                </p>
+              </CardHeader>
+              <CardBody>
+
+                <h4 className={classes.cardTitle}>Se estan cargando tus reservas...</h4>
+
+              </CardBody>
+            </Card>
+          </GridItem>
+        </GridContainer>
+    );
+
+
+  }
+  else if(error != null){
+    return (
+        <GridContainer>
+          <GridItem xs={12} sm={12} md={12}>
+            <Card>
+              <CardHeader color="danger">
+                <h4 className={classes.cardTitleWhite}>Lista de Reservas</h4>
+                <p className={classes.cardCategoryWhite}>
+                  Ver todas las reservas.
+                </p>
+              </CardHeader>
+              <CardBody>
+
+                <h4 className={classes.cardTitle}>Hubo un error cargando tus reservas. Error: {error.message}</h4>
+
+              </CardBody>
+            </Card>
+          </GridItem>
+        </GridContainer>
+    );
+
+  }
+  else {
+    return (
+        <GridContainer>
+          <GridItem xs={12} sm={12} md={12}>
+            <Card>
+              <CardHeader color="danger">
+                <h4 className={classes.cardTitleWhite}>Lista de Reservas</h4>
+                <p className={classes.cardCategoryWhite}>
+                  Ver todas las reservas.
+                </p>
+              </CardHeader>
+              <CardBody>
+
+                <TableEditable
+                    tableHead={[
+                      {title: 'Id de la Reserva', field: 'idReserva'},
+                      {title: 'Nombre del Cliente', field: 'nombre_Cliente'},
+                      {title: 'Habitacion', field: 'habitacion'},
+                      {title: 'Fecha Inicial', field: 'fecha_inicial', type: 'date'},
+                      {title: 'Fecha Fin', field: 'fechaFin', type: 'date'},
+                    ]}
+                    tableData={[
+                      {idReserva: 'Mehmet', nombre_Cliente: 'Baran', habitacion: 1987, fecha_inicial: 63},
+
+                    ]}
+                />
+
+              </CardBody>
+            </Card>
+          </GridItem>
+        </GridContainer>
+    );
+  }
+
 }

@@ -58,7 +58,7 @@ export default function NuevaReserva() {
 
 
             <GridContainer>
-                <GridItem xs={12} sm={12} md={10}>
+                <GridItem xs={12} sm={12} md={12}>
                     <Card>
                         <CardHeader color="danger">
                             <h4 className={classes.cardTitleWhite}>Nueva Reserva</h4>

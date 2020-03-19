@@ -20,6 +20,7 @@ import { Provider } from 'react-redux'
 import ReactDOM from "react-dom";
 import { createBrowserHistory } from "history";
 import {createStore,applyMiddleware,combineReducers } from 'redux';
+import thunk from "redux-thunk";
 
 
 import mainReducer from './redux/reducers/mainReducer';
@@ -35,15 +36,28 @@ import Admin from "layouts/Admin.js";
 import "assets/css/material-dashboard-react.css?v=1.8.0";
 import MuiPickersUtilsProvider from "@material-ui/pickers/MuiPickersUtilsProvider";
 
+const initialState = { reservasList: {reservas: [], error:null, loading: false},
+    newReserva:{reserva:null, error: null, loading: false},
+    activeReserva:{reserva:null, error:null, loading: false},
+    deletedReserva: {reserva: null, error:null, loading: false},
+};
+
+
 const hist = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(
-    combineReducers({
-        mainReducer,
-        routing: routerReducer,
-    }),
-    applyMiddleware(sagaMiddleware, logger, routerMiddleware(hist)),
-);
+export function configureStore(initialState ) {
+    const store = createStore(
+        combineReducers({
+            mainReducer,
+            routing: routerReducer
+        }),
+        applyMiddleware(sagaMiddleware, logger, routerMiddleware(hist),thunk),
+    );
+    return store;
+}
+
+const store = configureStore(initialState)
+
 
 ReactDOM.render(
     <Provider store={store}>

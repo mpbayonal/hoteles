@@ -29,7 +29,7 @@ import DashboardPage from "views/Dashboard/Dashboard.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
 import TableList from "views/TableList/TableList.js";
 import NuevaReserva from "./views/NuevaReserva/NuevaReserva";
-import ReservasLista from "./views/Reservas/ReservasLista";
+import ReservasPage from "./views/Reservas/ReservaListaPage";
 
 import Icons from "views/Icons/Icons.js";
 
@@ -87,7 +87,7 @@ const hotelesRutas = [
     path: "reservas",
     name: "Lista de Reservas",
     icon: "content_paste",
-    component: ReservasLista,
+    component: ReservasPage,
     layout: "/"
   }
 ];

@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a9e3444-21a3-4946-9c7b-cef432e97037" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/views/Reservas/ReservaListaContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Reservas/ReservaListaPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbars/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbars/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/actions/reservaActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/reservaActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/reserva.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/reserva.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/NuevaReserva/NuevaReserva.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/NuevaReserva/NuevaReserva.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Reservas/ReservasLista.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Reservas/ReservasLista.js" afterDir="false" />
     </list>
@@ -45,6 +53,9 @@
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/views/Reservas" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/views/Reservas" />
       <recent name="$PROJECT_DIR$/src/components" />
@@ -93,7 +104,8 @@
       <workItem from="1584126999405" duration="996000" />
       <workItem from="1584284437337" duration="678000" />
       <workItem from="1584333244531" duration="13757000" />
-      <workItem from="1584449830435" duration="268000" />
+      <workItem from="1584449830435" duration="4490000" />
+      <workItem from="1584538006034" duration="19185000" />
     </task>
     <servers />
   </component>
