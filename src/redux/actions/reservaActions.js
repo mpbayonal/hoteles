@@ -33,18 +33,27 @@ export const RESET_DELETED_RESERVA = 'RESET_DELETED_RESERVA';
 
 
 const ROOT_URL = 'http://127.0.0.1:8000';
-export function fetchReservas() {
-  const request = axios({
-    method: 'get',
-    url: `${ROOT_URL}/reservas/`,
-    headers: []
-  });
-
+export function fetchReservasStarted() {
   return {
-    type: FETCH_RESERVAS,
-    payload: request
+    type: FETCH_RESERVAS
   };
 }
+
+
+export const fetchReservas = () => {
+  return dispatch => {
+    dispatch(fetchReservasStarted());
+
+    axios
+        .get(`${ROOT_URL}/reservas/`)
+        .then(res => {
+           dispatch(fetchReservasSuccess(res.data));
+        })
+        .catch(err => {
+          dispatch(fetchReservasFailure(err));
+        });
+  };
+};
 
 export function fetchReservasSuccess(reservas) {
   return {
