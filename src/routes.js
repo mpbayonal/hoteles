@@ -50,7 +50,7 @@ const hotelesRutas = [
   },
   {
     path: "clientes",
-    name: "Clientes",
+    name: "Huespedes",
     icon: Person,
     component: ClientePage,
     layout: "/"

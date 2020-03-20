@@ -62,10 +62,18 @@ export default function NuevaReserva() {
                     <Card>
                         <CardHeader color="danger">
                             <h4 className={classes.cardTitleWhite}>Nueva Reserva</h4>
-                            <p className={classes.cardCategoryWhite}>Elegir las fechas de la reserva.</p>
+                            <p className={classes.cardCategoryWhite}>Llene los siguientes datos:</p>
                         </CardHeader>
+
                         <CardBody>
+
                             <GridContainer>
+
+                                <GridItem xs={12} sm={12} md={10}>
+                                    <p className={classes.description}>
+                                        Elegir la habitacion
+                                    </p>
+                                </GridItem>
 
                             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                 <GridItem xs={12} sm={12} md={4}>
@@ -144,7 +152,7 @@ export default function NuevaReserva() {
                             <GridContainer>
                                 <GridItem xs={12} sm={12} md={10}>
                                     <p className={classes.description}>
-                                        Ver la disponibilidad de la habitacion y añadir la reserva.
+                                        Ver la disponibilidad de la habitacion
                                     </p>
                                 </GridItem>
 

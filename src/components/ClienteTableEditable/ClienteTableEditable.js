@@ -10,7 +10,7 @@ import styles from "assets/jss/material-dashboard-react/components/tableStyle.js
 const useStyles = makeStyles(styles);
 
 
-export default function TableEditable(props) {
+export default function ClienteTableEditable(props) {
     const { tableHead, tableData } = props
     const [state, setState] = React.useState({
         columns: tableHead,
@@ -74,11 +74,11 @@ export default function TableEditable(props) {
     );
 }
 
-TableEditable.defaultProps = {
+CLienteTableEditableTableEditable.defaultProps = {
     tableHeaderColor: "gray"
 };
 
-TableEditable.propTypes = {
+ClienteTableEditable.propTypes = {
     tableHead: PropTypes.arrayOf(PropTypes.string),
     tableData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))
 };

@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import TableEditable from "components/TableEditable/TableEditable.js";
+import TableEditable from "components/ClienteTableEditable/ClienteTableEditable.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
@@ -63,14 +63,14 @@ export default function ClienteLista(props) {
           <GridItem xs={12} sm={12} md={12}>
             <Card>
               <CardHeader color="danger">
-                <h4 className={classes.cardTitleWhite}>Clientes</h4>
+                <h4 className={classes.cardTitleWhite}>Huespedes</h4>
                 <p className={classes.cardCategoryWhite}>
-                  Ver la lista de clientes.
+                  Ver la lista de huespedes.
                 </p>
               </CardHeader>
               <CardBody>
 
-                <h4 className={classes.cardTitle}>Se estan cargando la lista de los clientes...</h4>
+                <h4 className={classes.cardTitle}>Se estan cargando la lista de los huespedes...</h4>
 
               </CardBody>
             </Card>
@@ -86,14 +86,14 @@ export default function ClienteLista(props) {
           <GridItem xs={12} sm={12} md={12}>
             <Card>
               <CardHeader color="danger">
-                <h4 className={classes.cardTitleWhite}>Clientes</h4>
+                <h4 className={classes.cardTitleWhite}>Huespedes</h4>
                 <p className={classes.cardCategoryWhite}>
-                  Ver la lista de clientes.
+                  Ver la lista de huespedes.
                 </p>
               </CardHeader>
               <CardBody>
 
-                <h4 className={classes.cardTitle}>Hubo un error cargando la lista de los clientes. Error:  {error.message}</h4>
+                <h4 className={classes.cardTitle}>Hubo un error cargando la lista de los huespedes. Error:  {error.message}</h4>
 
               </CardBody>
             </Card>
@@ -137,14 +137,14 @@ export default function ClienteLista(props) {
           <GridItem xs={12} sm={12} md={12}>
             <Card>
               <CardHeader color="danger">
-                <h4 className={classes.cardTitleWhite}>Clientes</h4>
+                <h4 className={classes.cardTitleWhite}>Huespedes</h4>
                 <p className={classes.cardCategoryWhite}>
-                  Ver la lista de clientes.
+                  Ver la lista de huespedes.
                 </p>
               </CardHeader>
               <CardBody>
 
-                <TableEditable
+                <ClienteTableEditable
                     tableHead={[
                       {title: 'Id del Cliente', field: 'id'},
                       {title: 'Nombre', field: 'nombre'},
