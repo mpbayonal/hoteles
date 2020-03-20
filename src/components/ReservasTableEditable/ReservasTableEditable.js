@@ -74,7 +74,7 @@ export default function ReservasTableEditable(props) {
     );
 }
 
-ReservasTableEditableTableEditable.defaultProps = {
+ReservasTableEditable.defaultProps = {
     tableHeaderColor: "gray"
 };
 

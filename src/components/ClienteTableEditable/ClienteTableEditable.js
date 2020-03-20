@@ -74,7 +74,7 @@ export default function ClienteTableEditable(props) {
     );
 }
 
-CLienteTableEditableTableEditable.defaultProps = {
+ClienteTableEditable.defaultProps = {
     tableHeaderColor: "gray"
 };
 

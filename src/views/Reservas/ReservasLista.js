@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import TableEditable from "components/ReservasTableEditable/ReservasTableEditable.js";
+import ReservasTableEditable from "components/ReservasTableEditable/ReservasTableEditable.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";

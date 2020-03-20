@@ -74,7 +74,7 @@ export default function HabitacionTableEditable(props) {
     );
 }
 
-HabitacionTableEditableTableEditable.defaultProps = {
+HabitacionTableEditable.defaultProps = {
     tableHeaderColor: "gray"
 };
 
