@@ -6,6 +6,7 @@ import ReservasLista from './ReservasLista';
 
 const mapStateToProps = (state) => {
 
+
     return {
         reservasList: state.mainReducer.reserva.reservasList
 

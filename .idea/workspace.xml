@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a9e3444-21a3-4946-9c7b-cef432e97037" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/redux/actions/clienteActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/actions/habitacionActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/actions/userActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/cliente.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/habitacion.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/reservaActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/reservaActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Reservas/ReservaListaContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Reservas/ReservaListaContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Reservas/ReservasLista.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Reservas/ReservasLista.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +102,8 @@
       <workItem from="1584333244531" duration="13757000" />
       <workItem from="1584449830435" duration="4490000" />
       <workItem from="1584538006034" duration="19185000" />
-      <workItem from="1584627051527" duration="4176000" />
+      <workItem from="1584627051527" duration="7591000" />
+      <workItem from="1584712021109" duration="3728000" />
     </task>
     <servers />
   </component>
@@ -107,6 +115,10 @@
       <screen x="0" y="23" width="1280" height="700" />
     </state>
     <state x="0" y="43" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1280.700@0.23.1280.700" timestamp="1582315375572" />
+    <state x="468" y="183" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584667847774">
+      <screen x="0" y="23" width="1280" height="693" />
+    </state>
+    <state x="468" y="183" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.693@0.23.1280.693" timestamp="1584667847774" />
     <state x="533" y="118" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582042267338">
       <screen x="0" y="23" width="1280" height="693" />
     </state>

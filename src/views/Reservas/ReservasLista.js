@@ -44,6 +44,7 @@ const useStyles = makeStyles(styles);
 
 export default function ReservasLista(props) {
   const classes = useStyles();
+  let reservasLista = []
 
   useEffect(() => {
     props.fetchReservas()
@@ -53,7 +54,7 @@ export default function ReservasLista(props) {
   }, []);
 
   const { reservas, loading, error } = props.reservasList;
-  console.log(props)
+
 
   if(loading)
   {
@@ -102,6 +103,35 @@ export default function ReservasLista(props) {
 
   }
   else {
+
+
+    let d = 0
+    while(d < reservas.length)
+    {
+
+      let y = 0
+      while(y < reservas[d].pHabitacion.length)
+      {
+        let reserva = { "id":reservas[d].id, "nombre_Cliente":reservas[d].pCliente.nombre, "idCliente": reservas[d].pCliente.id,
+          'habitacion':reservas[d].pHabitacion[y].nombre,
+          'habitacion_tipo':reservas[d].pHabitacion[y].tipo,
+          'fecha_inicial':reservas[d].fechaInicio,
+          'fechaFin':reservas[d].fechaFin
+
+
+        };
+
+        reservasLista.push(reserva)
+        console.log(reservasLista)
+
+      y=y+1;
+      }
+
+      d = d+1;
+    }
+
+
+
     return (
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
@@ -116,16 +146,15 @@ export default function ReservasLista(props) {
 
                 <TableEditable
                     tableHead={[
-                      {title: 'Id de la Reserva', field: 'idReserva'},
+                      {title: 'Id de la Reserva', field: 'id'},
                       {title: 'Nombre del Cliente', field: 'nombre_Cliente'},
+                      {title: 'Id del Cliente', field: 'idCliente'},
                       {title: 'Habitacion', field: 'habitacion'},
+                      {title: 'Tipo de Habitacion', field: 'habitacion_tipo'},
                       {title: 'Fecha Inicial', field: 'fecha_inicial', type: 'date'},
                       {title: 'Fecha Fin', field: 'fechaFin', type: 'date'},
                     ]}
-                    tableData={[
-                      {idReserva: 'Mehmet', nombre_Cliente: 'Baran', habitacion: 1987, fecha_inicial: 63},
-
-                    ]}
+                    tableData={reservasLista}
                 />
 
               </CardBody>
