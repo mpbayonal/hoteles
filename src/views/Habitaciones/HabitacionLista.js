@@ -146,13 +146,15 @@ export default function HabitacionLista(props) {
 
                 <TableEditable
                     tableHead={[
-                      {title: 'Id de la Reserva', field: 'id'},
-                      {title: 'Nombre del Cliente', field: 'nombre_Cliente'},
-                      {title: 'Id del Cliente', field: 'idCliente'},
+
+                      {title: 'Id ', field: 'idHabitacion'},
+
                       {title: 'Habitacion', field: 'habitacion'},
                       {title: 'Tipo de Habitacion', field: 'habitacion_tipo'},
-                      {title: 'Fecha Inicial', field: 'fecha_inicial', type: 'date'},
-                      {title: 'Fecha Fin', field: 'fechaFin', type: 'date'},
+                      {title: 'Precio por Noche', field: 'precioNoche'},
+                      {title: 'Numero Camas Dobles', field: 'numeroDoble'},
+                      {title: 'Numero Camas Sencillas', field: 'numeroSencilla'},
+
                     ]}
                     tableData={reservasLista}
                 />

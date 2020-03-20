@@ -146,13 +146,15 @@ export default function ClienteLista(props) {
 
                 <TableEditable
                     tableHead={[
-                      {title: 'Id de la Reserva', field: 'id'},
-                      {title: 'Nombre del Cliente', field: 'nombre_Cliente'},
-                      {title: 'Id del Cliente', field: 'idCliente'},
-                      {title: 'Habitacion', field: 'habitacion'},
-                      {title: 'Tipo de Habitacion', field: 'habitacion_tipo'},
-                      {title: 'Fecha Inicial', field: 'fecha_inicial', type: 'date'},
-                      {title: 'Fecha Fin', field: 'fechaFin', type: 'date'},
+                      {title: 'Id del Cliente', field: 'id'},
+                      {title: 'Nombre', field: 'nombre'},
+                      {title: 'Apellido', field: 'apellido'},
+                      {title: 'Direccion', field: 'direccion'},
+                      {title: 'Telefono', field: 'telefono'},
+                      {title: 'Correo Electronico', field: 'email'},
+                      {title: 'Pais', field: 'pais'},
+                      {title: 'Ciudad', field: 'ciudad'},
+
                     ]}
                     tableData={reservasLista}
                 />
