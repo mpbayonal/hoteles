@@ -42,14 +42,22 @@ const hotelesRutas = [
   {
     path: "inicio",
     name: "Servicios al cuarto",
-    icon: Dashboard,
+    icon: Notifications,
     component: DashboardPage,
     layout: "/"
   },
   {
     path: "clientes",
-    name: "Lista de Clientes",
+    name: "Clientes",
     icon: Person,
+    component: UserProfile,
+    layout: "/"
+  }
+  ,
+  {
+    path: "habitaciones",
+    name: "Habitaciones",
+    icon: Dashboard,
     component: UserProfile,
     layout: "/"
   }
