@@ -158,6 +158,88 @@ export default function NuevaReserva() {
 
                             </GridContainer>
 
+                            <GridContainer>
+                                <GridItem xs={12} sm={12} md={5}>
+                                    <CustomInput
+                                        labelText="Company (disabled)"
+                                        id="company-disabled"
+                                        formControlProps={{
+                                            fullWidth: true
+                                        }}
+                                        inputProps={{
+                                            disabled: true
+                                        }}
+                                    />
+                                </GridItem>
+                                <GridItem xs={12} sm={12} md={3}>
+                                    <CustomInput
+                                        labelText="Cedula"
+                                        id="cedula"
+                                        formControlProps={{
+                                            fullWidth: true
+                                        }}
+                                    />
+                                </GridItem>
+                                <GridItem xs={12} sm={12} md={4}>
+                                    <CustomInput
+                                        labelText="Correo electronico"
+                                        id="email"
+                                        formControlProps={{
+                                            fullWidth: true
+                                        }}
+                                    />
+                                </GridItem>
+                            </GridContainer>
+                            <GridContainer>
+                                <GridItem xs={12} sm={12} md={6}>
+                                    <CustomInput
+                                        labelText="Nombres"
+                                        id="nombre"
+                                        formControlProps={{
+                                            fullWidth: true
+                                        }}
+                                    />
+                                </GridItem>
+                                <GridItem xs={12} sm={12} md={6}>
+                                    <CustomInput
+                                        labelText="Apellido"
+                                        id="apellido"
+                                        formControlProps={{
+                                            fullWidth: true
+                                        }}
+                                    />
+                                </GridItem>
+                            </GridContainer>
+                            <GridContainer>
+                                <GridItem xs={12} sm={12} md={4}>
+                                    <CustomInput
+                                        labelText="Ciudad"
+                                        id="ciudad"
+                                        formControlProps={{
+                                            fullWidth: true
+                                        }}
+                                    />
+                                </GridItem>
+                                <GridItem xs={12} sm={12} md={4}>
+                                    <CustomInput
+                                        labelText="Direccion"
+                                        id="direccion"
+                                        formControlProps={{
+                                            fullWidth: true
+                                        }}
+                                    />
+                                </GridItem>
+                                <GridItem xs={12} sm={12} md={4}>
+                                    <CustomInput
+                                        labelText="Telefono"
+                                        id="telefono"
+                                        formControlProps={{
+                                            fullWidth: true
+                                        }}
+                                    />
+                                </GridItem>
+                            </GridContainer>
+
                         </CardBody>
                         <CardFooter>
                             <Button color="primary">Añadir Reserva</Button>
