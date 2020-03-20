@@ -31,7 +31,7 @@ import TableList from "views/TableList/TableList.js";
 import NuevaReserva from "./views/NuevaReserva/NuevaReserva";
 import ReservasPage from "./views/Reservas/ReservaListaPage";
 
-import Icons from "views/Icons/Icons.js";
+
 
 import NotificationsPage from "views/Notifications/Notifications.js";
 
@@ -41,37 +41,16 @@ import NotificationsPage from "views/Notifications/Notifications.js";
 const hotelesRutas = [
   {
     path: "inicio",
-    name: "Dashboard",
+    name: "Servicios al cuarto",
     icon: Dashboard,
     component: DashboardPage,
     layout: "/"
   },
   {
-    path: "user",
-    name: "User Profile",
+    path: "clientes",
+    name: "Lista de Clientes",
     icon: Person,
     component: UserProfile,
-    layout: "/"
-  },
-  {
-    path: "table",
-    name: "Table List",
-    icon: "content_paste",
-    component: TableList,
-    layout: "/"
-  },
-  {
-    path: "icons",
-    name: "Icons",
-    icon: BubbleChart,
-    component: Icons,
-    layout: "/"
-  },
-  {
-    path: "notifications",
-    name: "Notifications",
-    icon: Notifications,
-    component: NotificationsPage,
     layout: "/"
   }
   ,
