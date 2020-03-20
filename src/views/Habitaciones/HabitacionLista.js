@@ -42,7 +42,7 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-export default function ReservasLista(props) {
+export default function HabitacionLista(props) {
   const classes = useStyles();
   let reservasLista = []
 
@@ -63,14 +63,14 @@ export default function ReservasLista(props) {
           <GridItem xs={12} sm={12} md={12}>
             <Card>
               <CardHeader color="danger">
-                <h4 className={classes.cardTitleWhite}>Reservas</h4>
+                <h4 className={classes.cardTitleWhite}>Habitaciones</h4>
                 <p className={classes.cardCategoryWhite}>
-                  Ver todas las reservas.
+                  Ver todas las habitaciones.
                 </p>
               </CardHeader>
               <CardBody>
 
-                <h4 className={classes.cardTitle}>Se estan cargando tus reservas...</h4>
+                <h4 className={classes.cardTitle}>Se estan cargando la lista de las habitaciones...</h4>
 
               </CardBody>
             </Card>
@@ -86,14 +86,14 @@ export default function ReservasLista(props) {
           <GridItem xs={12} sm={12} md={12}>
             <Card>
               <CardHeader color="danger">
-                <h4 className={classes.cardTitleWhite}>Reservas</h4>
+                <h4 className={classes.cardTitleWhite}>Habitaciones</h4>
                 <p className={classes.cardCategoryWhite}>
-                  Ver todas las reservas.
+                  Ver todas las habitaciones.
                 </p>
               </CardHeader>
               <CardBody>
 
-                <h4 className={classes.cardTitle}>Hubo un error cargando tus reservas. Error: {error.message}</h4>
+                <h4 className={classes.cardTitle}>Hubo un error cargando la lista de las habitaciones. Error:  {error.message}</h4>
 
               </CardBody>
             </Card>
@@ -137,9 +137,9 @@ export default function ReservasLista(props) {
           <GridItem xs={12} sm={12} md={12}>
             <Card>
               <CardHeader color="danger">
-                <h4 className={classes.cardTitleWhite}>Reservas</h4>
+                <h4 className={classes.cardTitleWhite}>Habitaciones</h4>
                 <p className={classes.cardCategoryWhite}>
-                  Ver todas las reservas.
+                  Ver todas las habitaciones.
                 </p>
               </CardHeader>
               <CardBody>

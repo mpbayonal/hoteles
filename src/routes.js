@@ -30,6 +30,8 @@ import UserProfile from "views/UserProfile/UserProfile.js";
 import TableList from "views/TableList/TableList.js";
 import NuevaReserva from "./views/NuevaReserva/NuevaReserva";
 import ReservasPage from "./views/Reservas/ReservaListaPage";
+import HabitacionPage from "./views/Habitaciones/HabitacionListaPage";
+import ClientePage from "./views/Clientes/CLienteListaPage";
 
 
 
@@ -50,7 +52,7 @@ const hotelesRutas = [
     path: "clientes",
     name: "Clientes",
     icon: Person,
-    component: UserProfile,
+    component: ClientePage,
     layout: "/"
   }
   ,
@@ -58,7 +60,7 @@ const hotelesRutas = [
     path: "habitaciones",
     name: "Habitaciones",
     icon: Dashboard,
-    component: UserProfile,
+    component: HabitacionPage,
     layout: "/"
   }
   ,
