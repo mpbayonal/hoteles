@@ -174,18 +174,24 @@ export function resetActiveReserva() {
   }
 }
 
+export const deleteReservas = (id) => {
+  return dispatch => {
+    dispatch(deleteReservaSarted());
 
-export function deleteReserva(id, tokenFromStorage) {
-  const request = axios({
-    method: 'delete',
-    url: `${ROOT_URL}/reservas/${id}`,
-    headers: {
-      'Authorization': `Bearer ${tokenFromStorage}`
-    }
-  });
+    axios
+        .delete(`${ROOT_URL}/reserva/${id}/`)
+        .then(res => {
+          dispatch(deleteReservaSuccess(res));
+        })
+        .catch(err => {
+          dispatch(deleteReservaFailure(err));
+        });
+  };
+};
+
+export function deleteReservaSarted() {
   return {
-    type: DELETE_RESERVA,
-    payload: request
+    type: DELETE_RESERVA
   };
 }
 

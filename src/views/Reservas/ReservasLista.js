@@ -65,7 +65,7 @@ export default function ReservasLista(props) {
               <CardHeader color="danger">
                 <h4 className={classes.cardTitleWhite}>Reservas</h4>
                 <p className={classes.cardCategoryWhite}>
-                  Ver todas las reservas.
+                  Ver todas las reservas por habitacion.
                 </p>
               </CardHeader>
               <CardBody>
@@ -88,7 +88,7 @@ export default function ReservasLista(props) {
               <CardHeader color="danger">
                 <h4 className={classes.cardTitleWhite}>Reservas</h4>
                 <p className={classes.cardCategoryWhite}>
-                  Ver todas las reservas.
+                  Ver todas las reservas por habitacion.
                 </p>
               </CardHeader>
               <CardBody>
@@ -139,7 +139,7 @@ export default function ReservasLista(props) {
               <CardHeader color="danger">
                 <h4 className={classes.cardTitleWhite}>Reservas</h4>
                 <p className={classes.cardCategoryWhite}>
-                  Ver todas las reservas.
+                  Ver todas las reservas por habitacion.
                 </p>
               </CardHeader>
               <CardBody>
@@ -155,6 +155,8 @@ export default function ReservasLista(props) {
                       {title: 'Fecha Fin', field: 'fechaFin', type: 'date'},
                     ]}
                     tableData={reservasLista}
+                    deleteReserva={props.deleteReservas}
+                    //actualizar = {props.fetchReservas()}
                 />
 
               </CardBody>

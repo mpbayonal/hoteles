@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import PropTypes from "prop-types";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -17,6 +17,7 @@ export default function ReservasTableEditable(props) {
         data: tableData,
     });
 
+
     return (
         <MaterialTable
             title=""
@@ -29,7 +30,25 @@ export default function ReservasTableEditable(props) {
 
                 toolbar : {searchTooltip : "Buscar",
                     searchPlaceholder : "Buscar",
-                    nRowsSelected : "{0} elemento(s) seleccionado"}
+                    nRowsSelected : "{0} elemento(s) seleccionado"},
+                body:{
+                    emptyDataSourceMessage: "No hay reservas",
+
+                    addTooltip: "Agregar",
+                    deleteTooltip: "Borrar",
+                    editTooltip: "Editar",
+
+                    editRow:{
+                        deleteText: "Esta seguro de borrar esta reserva",
+                        cancelTooltip: "Cancelar",
+                        saveTooltip: "Aceptar"
+                    },
+                    filterRow:{
+                        filterTooltip: "Filtrar"
+
+                    }
+
+                }
             }}
             options={{
                 filtering: true ,
@@ -39,7 +58,7 @@ export default function ReservasTableEditable(props) {
             }}
             actions={[
                 {
-                    tooltip: 'Remove All Selected Users',
+                    tooltip: 'Borrar las reservas seleccionadas',
                     icon: 'delete',
                     onClick: (evt, data) => alert('You want to delete ' + data.length + ' rows')
                 }
@@ -62,13 +81,20 @@ export default function ReservasTableEditable(props) {
                     new Promise(resolve => {
                         setTimeout(() => {
                             resolve();
+                            props.deleteReserva(oldData.id)
                             setState(prevState => {
-                                const data = [...prevState.data];
-                                data.splice(data.indexOf(oldData), 1);
+                                const data2 = [...prevState.data];
+                                const data = data2.filter(function (e) {
+                                    console.log(e.id)
+                                    return e.id !== oldData.id;
+                                });
+
                                 return { ...prevState, data };
                             });
                         }, 600);
                     }),
+
+
             }}
         />
     );
@@ -80,5 +106,8 @@ ReservasTableEditable.defaultProps = {
 
 ReservasTableEditable.propTypes = {
     tableHead: PropTypes.arrayOf(PropTypes.string),
-    tableData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))
+    tableData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+    deleteReserva: PropTypes.func,
+    edit: PropTypes.func,
+    actualizar : PropTypes.func
 };

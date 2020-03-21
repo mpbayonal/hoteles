@@ -153,6 +153,7 @@ export default function NuevaReserva() {
                                 <GridItem xs={12} sm={12} md={10}>
                                     <p className={classes.description}>
                                         Ver la disponibilidad de la habitacion
+
                                     </p>
                                 </GridItem>
 
