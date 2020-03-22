@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { List, AutoSizer } from 'react-virtualized';
 import { useState } from "react";
 import Select from "react-dropdown-select";
+import HabitacionesLista from "../../components/Habitaciones/HabitacionesLista";
 import InputLabel from "@material-ui/core/InputLabel";
 // core components
 import GridItem from "components/Grid/GridItem.js";
@@ -50,6 +51,8 @@ export default function NuevaReserva() {
     const classes = useStyles();
     const [selectedDateEnd, handleDateChangeEnd] = useState(new Date());
     const [selectedDateStart, handleDateChangeInicioStart] = useState(new Date());
+    let habitacionesElegidas = []
+    let habitacionesLista = []
 
     const fechaInicio = useSelector(state => state);
     const fechaFin = useDispatch();
@@ -69,9 +72,9 @@ export default function NuevaReserva() {
 
                             <GridContainer>
 
-                                <GridItem xs={12} sm={12} md={10}>
+                                <GridItem xs={12} sm={12} md={12}>
                                     <p className={classes.description}>
-                                        Elegir la habitacion
+                                        Elegir las fechas
                                     </p>
                                 </GridItem>
 
@@ -150,22 +153,30 @@ export default function NuevaReserva() {
                             </GridContainer>
 
                             <GridContainer>
-                                <GridItem xs={12} sm={12} md={10}>
+                                <GridItem xs={12} sm={12} md={12}>
                                     <p className={classes.description}>
-                                        Ver la disponibilidad de la habitacion
-
+                                        Elegir la cantidad de habitaciones y huespedes
                                     </p>
                                 </GridItem>
 
+
                             </GridContainer>
                             <GridContainer>
-                                <GridItem xs={12} sm={12} md={12}>
+                                <GridItem xs={12} sm={12} md={5}>
+                                    <HabitacionesLista
+                                        habitacionesIndexes={habitacionesElegidas}
+                                        habitaciones={ habitacionesLista}
+
+                                    />
+                                </GridItem>
+                                <GridItem xs={12} sm={12} md={7}>
                                     <CalendarReservas
                                     />
                                 </GridItem>
 
 
                             </GridContainer>
+
 
                             <GridContainer>
                                 <GridItem xs={12} sm={12} md={5}>

@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5a9e3444-21a3-4946-9c7b-cef432e97037" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ReservasTableEditable/ReservasTableEditable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ReservasTableEditable/ReservasTableEditable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/reservaActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/reservaActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/NuevaReserva/NuevaReserva.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/NuevaReserva/NuevaReserva.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Reservas/ReservaListaContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Reservas/ReservaListaContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Reservas/ReservasLista.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Reservas/ReservasLista.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +98,9 @@
       <workItem from="1584538006034" duration="19185000" />
       <workItem from="1584627051527" duration="7591000" />
       <workItem from="1584712021109" duration="15857000" />
-      <workItem from="1584755901965" duration="7392000" />
+      <workItem from="1584755901965" duration="8362000" />
+      <workItem from="1584825373029" duration="1515000" />
+      <workItem from="1584835530065" duration="14538000" />
     </task>
     <servers />
   </component>
