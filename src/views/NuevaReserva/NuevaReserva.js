@@ -56,9 +56,9 @@ export default function NuevaReserva() {
     const classes = useStyles();
     const [selectedDateEnd, handleDateChangeEnd] = useState(new Date());
     const [selectedDateStart, handleDateChangeInicioStart] = useState(new Date());
-    const [habitacionesElegidas,setHabitacionesElegidas] = useState([ {
+    const [habitacionesElegidas,setHabitacionesElegidas] = useState([{
         "id" :-1,
-        "index":0,
+        "index": 0,
         "tipo":"",
         "nombre" : "",
         "costo": -1,
@@ -69,6 +69,8 @@ export default function NuevaReserva() {
         "descripcion":""
     }])
     const [habitacionesLista,setHabitacionesLista] = useState([])
+    const [numeroHabitaciones,setnumeroHabitaciones] = useState(1)
+    const [numeroHuespedes,setnumeroHuespedes] = useState(1)
 
 
     const [fixedClasses, setFixedClasses] = React.useState("dropdown");
@@ -88,25 +90,46 @@ export default function NuevaReserva() {
 
     const anadirHabitacion = () => {
 
-        let index = habitacionesElegidas.length -1
-        let t = {
-            "id" :-1,
-            "index": index,
-            "tipo":"",
-            "nombre" : "",
-            "costo": -1,
-            "numeroAdultos":1,
-            "numeroNinos": 0,
-            "numeroCamasDobles" : -1,
-            "numeroCamasSencillas" :-1,
-            "descripcion":""
-        }
-
-
-        console.log(t)
         let y = habitacionesElegidas;
-        y.push(t);
+if (habitacionesElegidas.length === 0){
+    let t = {
+        "id" :-1,
+        "index": 0,
+        "tipo":"",
+        "nombre" : "",
+        "costo": -1,
+        "numeroAdultos":1,
+        "numeroNinos": 0,
+        "numeroCamasDobles" : -1,
+        "numeroCamasSencillas" :-1,
+        "descripcion":""
+    }
+    y.push(t);
+}
+else{
+    let index = habitacionesElegidas.length
+    let t = {
+        "id" :-1,
+        "index": index,
+        "tipo":"",
+        "nombre" : "",
+        "costo": -1,
+        "numeroAdultos":1,
+        "numeroNinos": 0,
+        "numeroCamasDobles" : -1,
+        "numeroCamasSencillas" :-1,
+        "descripcion":""
+    }
+    y.push(t);
+}
+
+
+
         setHabitacionesElegidas(y)
+        setnumeroHabitaciones(habitacionesElegidas.length);
+        calculoHabitacionesHuespedes()
+
+
 
 
 
@@ -114,22 +137,55 @@ export default function NuevaReserva() {
     };
     const habitacionNino = (index,  numeroNinos) => {
 
+        if( isNaN(numeroNinos)){
+            let t = habitacionesElegidas;
+            t[index].numeroNinos = 0;
+            setHabitacionesElegidas(t);
+            calculoHabitacionesHuespedes()
+        }
+        else {
+            let t = habitacionesElegidas;
+            t[index].numeroNinos = numeroNinos;
+            setHabitacionesElegidas(t);
+            calculoHabitacionesHuespedes()
+
+        }
 
 
-        let t = habitacionesElegidas;
-        t[index].numeroNinos = numeroNinos;
-        setHabitacionesElegidas(t);
+
+
+    };
+
+    const calculoHabitacionesHuespedes = () => {
+        let pnumeroHuespedes=0;
+
+    let t =0
+    while(t < habitacionesElegidas.length){
+        pnumeroHuespedes = pnumeroHuespedes + habitacionesElegidas[t].numeroNinos + habitacionesElegidas[t].numeroAdultos;
+        t++;
+
+    }
+
+        setnumeroHabitaciones(habitacionesElegidas.length);
+        setnumeroHuespedes(pnumeroHuespedes);
 
 
     };
 
     const habitacionAdulto = (index,  numeroAdulto) => {
 
-
+       if( isNaN(numeroAdulto)){
+           let t = habitacionesElegidas
+           t[index].numeroAdultos = 0;
+           setHabitacionesElegidas(t);
+           calculoHabitacionesHuespedes()
+       }
+       else{
 
         let t = habitacionesElegidas
         t[index].numeroAdultos = numeroAdulto;
         setHabitacionesElegidas(t);
+        calculoHabitacionesHuespedes()}
 
 
     };
@@ -173,6 +229,8 @@ export default function NuevaReserva() {
                                         anadirHabitacion={ anadirHabitacion}
                                         anadirNino = {habitacionNino}
                                         anadirAdulto = {habitacionAdulto}
+                                        numeroHabitaciones={numeroHabitaciones}
+                                        numeroHuespedes={numeroHuespedes}
 
                                     />
 

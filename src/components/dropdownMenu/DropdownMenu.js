@@ -15,11 +15,8 @@ import PropTypes from "prop-types";
 
 
 class DropdownMenu extends Component {
-    niños = 0
-    adultos = 1;
-    numeroHabitaciones = 1;
-    numero=0;
-    habitaciones= []
+
+
 
 
     constructor(props) {
@@ -28,7 +25,9 @@ class DropdownMenu extends Component {
             super(props);
         this.state = {
             classes: "dropdown show",
-            habitaciones: this.props.habitaciones
+            habitaciones: this.props.habitaciones,
+            huepedes: this.props.numeroHuespedes,
+            numeroHabitaciones: this.props.numeroHabitaciones
 
 
         };
@@ -36,31 +35,58 @@ class DropdownMenu extends Component {
         this.anadirHabitacion=this.anadirHabitacion.bind(this);
             this.anadirNino = this.anadirNino.bind(this);
             this.anadirAdulto= this.anadirAdulto.bind(this);
-            console.log(this.props.habitaciones)
+
+
 
 
 
 
     }
-    darNumero(){
-        return this.numero + 1;
-    }
+
     handleClick() {
+
         this.props.handleFixedClick();
+    }
+    componentDidMount() {
+
+            this.setState({
+                habitaciones: this.props.habitaciones,
+                huepedes: this.props.numeroHuespedes,
+                numeroHabitaciones: this.props.numeroHabitaciones
+            });
+
+
+
     }
     anadirHabitacion(){
         this.props.anadirHabitacion()
+        this.setState((state, props) => ({
+            huepedes: props.numeroHuespedes,
+            numeroHabitaciones: props.numeroHabitaciones
+        }));
+
     }
     anadirNino(index,nino){
-        this.props.anadirNino(index,nino)
+        let numero = parseInt(nino)
+        this.props.anadirNino(index,numero)
+        this.setState((state, props) => ({
+            huepedes: props.numeroHuespedes
+        }));
+
+
     }
 
     anadirAdulto(index, adulto){
-        this.props.anadirAdulto(index,adulto)
+
+        let numero = parseInt(adulto)
+        this.props.anadirAdulto(index,numero)
+        this.setState((state, props) => ({
+            huepedes: props.numeroHuespedes
+        }));
+
     }
 
     render() {
-        const habitaciones2 = this.props.habitaciones;
 
 
 
@@ -70,7 +96,7 @@ class DropdownMenu extends Component {
             >
                 <div id="fixedPluginClasses" className={this.props.fixedClasses}>
                     <div onClick={this.handleClick}>
-                        <p>{this.numeroHabitaciones} habitacion(es), {this.adultos+this.niños} huesped(es)</p>
+                        <p>{this.props.numeroHabitaciones} habitacion(es), {this.props.numeroHuespedes} huesped(es)</p>
                     </div>
                     <div className="dropdown-menu">
 
@@ -105,14 +131,14 @@ class DropdownMenu extends Component {
 
                                     </GridItem>
                                     <GridItem xs={4} sm={4} md={4}>
-                                        <p>Habitacion {value.index + 1}</p>
+                                        <p>Habitacion {value.index +1 }</p>
 
                                     </GridItem>
 
                                     <GridItem xs={3} sm={3} md={3}>
                                         <TextField
-                                            id={ value.index + 1}
-                                            defaultValue= "1"
+
+                                            defaultValue= {1}
                                             type="number"
                                             InputLabelProps={{
                                                 shrink: true,
@@ -123,7 +149,7 @@ class DropdownMenu extends Component {
                                     </GridItem>
                                     <GridItem xs={3} sm={3} md={3}>
                                         <TextField
-                                            id={value.index + 1}
+
                                             defaultValue= {0}
                                             type="number"
                                             InputLabelProps={{
@@ -173,7 +199,9 @@ DropdownMenu.propTypes = {
     })).isRequired,
     anadirHabitacion:PropTypes.func,
     anadirNino : PropTypes.func,
-    anadirAdulto: PropTypes.func
+    anadirAdulto: PropTypes.func,
+    numeroHabitaciones: PropTypes.number,
+    numeroHuespedes: PropTypes.number
 };
 
 
