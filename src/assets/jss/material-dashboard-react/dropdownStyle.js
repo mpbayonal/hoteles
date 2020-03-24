@@ -38,7 +38,7 @@ const dropdownStyle = theme => ({
   },
   pooperResponsive: {
     [theme.breakpoints.down("md")]: {
-      zIndex: "1640",
+      zIndex: "100000040",
       position: "static",
       float: "none",
       width: "auto",
@@ -82,8 +82,8 @@ const dropdownStyle = theme => ({
     borderRadius: "3px",
     border: "0",
     boxShadow: "0 2px 5px 0 rgba(" + hexToRgb(blackColor) + ", 0.26)",
-    top: "100%",
-    zIndex: "1000",
+    top: "800%",
+    zIndex: "1000000000",
     minWidth: "160px",
     padding: "5px 0",
     margin: "2px 0 0",
@@ -111,6 +111,7 @@ const dropdownStyle = theme => ({
     lineHeight: "1.42857143",
     color: grayColor[8],
     whiteSpace: "nowrap",
+    zIndex: "1000000000",
     height: "unset",
     minHeight: "unset",
     "&:hover": {

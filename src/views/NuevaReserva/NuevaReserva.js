@@ -17,14 +17,17 @@ import GridContainer from "components/Grid/GridContainer.js";
 
 import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
+
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardAvatar from "components/Card/CardAvatar.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CalendarReservas from "../../components/Calendar/CalendarReservas";
+import DropdownMenu from "../../components/dropdownMenu/DropdownMenu";
 
 import avatar from "assets/img/faces/marc.jpg";
+import PropTypes from "prop-types";
 
 const styles = {
     cardCategoryWhite: {
@@ -47,12 +50,91 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
+
+
 export default function NuevaReserva() {
     const classes = useStyles();
     const [selectedDateEnd, handleDateChangeEnd] = useState(new Date());
     const [selectedDateStart, handleDateChangeInicioStart] = useState(new Date());
-    let habitacionesElegidas = []
-    let habitacionesLista = []
+    const [habitacionesElegidas,setHabitacionesElegidas] = useState([ {
+        "id" :-1,
+        "index":0,
+        "tipo":"",
+        "nombre" : "",
+        "costo": -1,
+        "numeroAdultos":1,
+        "numeroNinos": 0,
+        "numeroCamasDobles" : -1,
+        "numeroCamasSencillas" :-1,
+        "descripcion":""
+    }])
+    const [habitacionesLista,setHabitacionesLista] = useState([])
+
+
+    const [fixedClasses, setFixedClasses] = React.useState("dropdown");
+
+    const handleFixedClick = () => {
+        if (fixedClasses === "dropdown") {
+            setFixedClasses("dropdown show");
+        } else {
+            setFixedClasses("dropdown");
+        }
+    };
+
+
+
+
+
+
+    const anadirHabitacion = () => {
+
+        let index = habitacionesElegidas.length -1
+        let t = {
+            "id" :-1,
+            "index": index,
+            "tipo":"",
+            "nombre" : "",
+            "costo": -1,
+            "numeroAdultos":1,
+            "numeroNinos": 0,
+            "numeroCamasDobles" : -1,
+            "numeroCamasSencillas" :-1,
+            "descripcion":""
+        }
+
+
+        console.log(t)
+        let y = habitacionesElegidas;
+        y.push(t);
+        setHabitacionesElegidas(y)
+
+
+
+
+    };
+    const habitacionNino = (index,  numeroNinos) => {
+
+
+
+        let t = habitacionesElegidas;
+        t[index].numeroNinos = numeroNinos;
+        setHabitacionesElegidas(t);
+
+
+    };
+
+    const habitacionAdulto = (index,  numeroAdulto) => {
+
+
+
+        let t = habitacionesElegidas
+        t[index].numeroAdultos = numeroAdulto;
+        setHabitacionesElegidas(t);
+
+
+    };
+
+
 
     const fechaInicio = useSelector(state => state);
     const fechaFin = useDispatch();
@@ -70,6 +152,7 @@ export default function NuevaReserva() {
 
                         <CardBody>
 
+
                             <GridContainer>
 
                                 <GridItem xs={12} sm={12} md={12}>
@@ -78,10 +161,36 @@ export default function NuevaReserva() {
                                     </p>
                                 </GridItem>
 
+                                <GridItem xs={12} sm={12} md={6}>
+
+
+
+
+                                    <DropdownMenu
+                                        handleFixedClick={handleFixedClick}
+                                        fixedClasses={fixedClasses}
+                                        habitaciones={habitacionesElegidas }
+                                        anadirHabitacion={ anadirHabitacion}
+                                        anadirNino = {habitacionNino}
+                                        anadirAdulto = {habitacionAdulto}
+
+                                    />
+
+
+
+
+
+
+
+                                </GridItem>
+
+
                             <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                <GridItem xs={12} sm={12} md={4}>
+                                <GridItem xs={12} sm={6} md={3}>
+
                                     <KeyboardDatePicker
                                         autoOk
+                                        margin="normal"
                                         placeholder="2018/10/10"
                                         value={selectedDateStart}
                                         onChange={date => handleDateChangeInicioStart(date)}
@@ -92,9 +201,10 @@ export default function NuevaReserva() {
 
                                     />
                             </GridItem>
-                                <GridItem xs={12} sm={12} md={4}>
+                                <GridItem xs={12} sm={6} md={3}>
                                 <KeyboardDatePicker
                                     autoOk
+                                    margin="normal"
                                     placeholder="2018/10/10"
                                     value={selectedDateEnd}
                                     onChange={date => handleDateChangeEnd(date)}
@@ -107,42 +217,13 @@ export default function NuevaReserva() {
 
                              </GridItem>
 
-                                <GridItem xs={12} sm={12} md={4}>
-                                    <Select
 
 
 
 
-                                        placeholder="Habitaciones"
 
 
-                                        clearable={true}
-                                        dropdownHandle={true}
-                                        searchable={true}
-                                        addPlaceholder={"Añadir habitaciones"}
-                                        color={"#0074D9"}
-                                        multi={true}
-                                        dropdownHeight={"500px"}
-                                        disabled={false}
-                                        searchBy={"this.state.searchBy"}
-                                        separator={false}
-                                        forceOpen={false}
-                                        handle={true}
-                                        multi={true}
-                                        values={[0,1,1]}
-                                        options={[0,1,1]}
-                                        onDropdownOpen={() => undefined}
-                                        onDropdownClose={() => undefined}
-                                        onChange={(values) => this.setValues(values)}
-                                        contentRenderer={
-                                            false
-                                        }
-                                        dropdownRenderer={
-                                            true
-                                        }
-                                    />
 
-                                </GridItem>
 
                             </MuiPickersUtilsProvider>
 
@@ -168,6 +249,11 @@ export default function NuevaReserva() {
                                         habitaciones={ habitacionesLista}
 
                                     />
+                                </GridItem>
+
+                                <GridItem xs={12} sm={12} md={4}>
+
+
                                 </GridItem>
                                 <GridItem xs={12} sm={12} md={7}>
                                     <CalendarReservas

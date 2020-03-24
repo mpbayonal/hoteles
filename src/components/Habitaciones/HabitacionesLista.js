@@ -24,13 +24,14 @@ const useStyles = makeStyles(styles);
 export default function Habitaciones(props) {
     const classes = useStyles();
 
-    const [habitaciones, checkedIndexes] = props
+    const { habitaciones, checkedIndexes} = props
 
     const [state, setState] = React.useState({
         habitacionesLista: habitaciones,
-        habitacionesAnadidas: checkedIndexes,
+        habitacionesAnadidas: checkedIndexes
     });
 
+    console.log(habitaciones.length)
 
 
     const handleToggle = value => {
@@ -50,6 +51,7 @@ export default function Habitaciones(props) {
         });
 
     };
+    if(habitaciones.length > 0){
 
     return (
 
@@ -76,15 +78,39 @@ export default function Habitaciones(props) {
                 ))}
             </div>
 
-    );
+    );}
+    else {
+
+        return (
+
+            <div>
+
+
+                    <Card chart>
+                        <CardBody>
+                            <p className={classes.cardCategory}>No hay habitaciones </p>
+
+                        </CardBody>
+
+                    </Card>
+
+
+
+
+            </div> );
+    }
 }
 
 
 Habitaciones.propTypes = {
     habitaciones: PropTypes.arrayOf(PropTypes.shape({
+        id:PropTypes.string,
         tipo: PropTypes.string,
         nombre: PropTypes.string,
         costo: PropTypes.number,
+        numeroCamasDobles : PropTypes.number,
+        numeroCamasSencillas : PropTypes.number,
+        descripcion:PropTypes.string
     })).isRequired,
     habitacionesIndexes: PropTypes.arrayOf(PropTypes.number),
     checkedIndexes: PropTypes.arrayOf(PropTypes.shape({
@@ -92,6 +118,9 @@ Habitaciones.propTypes = {
         tipo: PropTypes.string,
         nombre: PropTypes.string,
         costo: PropTypes.number,
+        numeroCamasDobles : PropTypes.number,
+        numeroCamasSencillas : PropTypes.number,
+        descripcion:PropTypes.string
     })).isRequired
 }
 

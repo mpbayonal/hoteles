@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a9e3444-21a3-4946-9c7b-cef432e97037" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/dropdownMenu/DropdownMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/css/material-dashboard-react.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/material-dashboard-react.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/dropdownStyle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/dropdownStyle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Habitaciones/HabitacionesLista.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Habitaciones/HabitacionesLista.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/NuevaReserva/NuevaReserva.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/NuevaReserva/NuevaReserva.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +106,8 @@
       <workItem from="1584712021109" duration="15857000" />
       <workItem from="1584755901965" duration="8362000" />
       <workItem from="1584825373029" duration="1515000" />
-      <workItem from="1584835530065" duration="14538000" />
+      <workItem from="1584835530065" duration="24228000" />
+      <workItem from="1584921015034" duration="31168000" />
     </task>
     <servers />
   </component>
