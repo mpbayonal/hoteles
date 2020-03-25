@@ -172,6 +172,48 @@ else{
 
     };
 
+    const borrar = (index) => {
+        console.log(index)
+        let removed = []
+
+
+
+        let t = 0
+        while(t < habitacionesElegidas.length)
+        {
+            if(t < index)
+            {
+            removed.push(habitacionesElegidas[t])
+                t++;
+            }
+            else if(t === index)
+            {
+                t++;
+            }
+            else if(t > index)
+            {
+                removed.push(habitacionesElegidas[t])
+
+                removed[t-1].index = t-1;
+                t++;
+            }
+
+
+        }
+
+
+
+
+    console.log(removed)
+        setHabitacionesElegidas([]);
+        setHabitacionesElegidas(removed);
+    console.log(habitacionesElegidas)
+        calculoHabitacionesHuespedes()
+
+
+    };
+
+
     const habitacionAdulto = (index,  numeroAdulto) => {
 
        if( isNaN(numeroAdulto)){
@@ -228,6 +270,7 @@ else{
                                         habitaciones={habitacionesElegidas }
                                         anadirHabitacion={ anadirHabitacion}
                                         anadirNino = {habitacionNino}
+                                        borrar={borrar}
                                         anadirAdulto = {habitacionAdulto}
                                         numeroHabitaciones={numeroHabitaciones}
                                         numeroHuespedes={numeroHuespedes}

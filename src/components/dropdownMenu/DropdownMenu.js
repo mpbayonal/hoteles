@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import classnames from "classnames";
 import TextField from '@material-ui/core/TextField';
 import GridContainer from "components/Grid/GridContainer.js";
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Button from '@material-ui/core/Button';
+
+
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardAvatar from "components/Card/CardAvatar.js";
@@ -12,6 +17,8 @@ import GridItem from "components/Grid/GridItem.js";
 import imagine1 from "assets/img/sidebar-1.jpg";
 import imagine2 from "assets/img/sidebar-2.jpg";
 import PropTypes from "prop-types";
+
+
 
 
 class DropdownMenu extends Component {
@@ -34,6 +41,7 @@ class DropdownMenu extends Component {
         this.handleClick = this.handleClick.bind(this);
         this.anadirHabitacion=this.anadirHabitacion.bind(this);
             this.anadirNino = this.anadirNino.bind(this);
+            this.borrar = this.borrar.bind(this);
             this.anadirAdulto= this.anadirAdulto.bind(this);
 
 
@@ -86,6 +94,18 @@ class DropdownMenu extends Component {
 
     }
 
+    borrar(index){
+
+
+        this.props.borrar(index)
+        this.setState((state, props) => ({
+            huepedes: props.numeroHuespedes,
+            numeroHabitaciones: props.numeroHabitaciones
+        }));
+
+
+    }
+
     render() {
 
 
@@ -100,8 +120,7 @@ class DropdownMenu extends Component {
                     </div>
                     <div className="dropdown-menu">
 
-                        <div className="header-title">SIDEBAR FILTERS</div>
-                        <div className="adjustments-line">jjj</div>
+
                         <GridContainer>
                             <GridItem xs={2} sm={2} md={2}>
 
@@ -116,7 +135,7 @@ class DropdownMenu extends Component {
 
                             </GridItem>
                             <GridItem xs={3} sm={3} md={3}>
-                                <p>Niños</p>
+                                <p >Niños</p>
 
                             </GridItem>
                         </GridContainer>
@@ -127,7 +146,9 @@ class DropdownMenu extends Component {
 
                                 <GridContainer>
                                     <GridItem xs={2} sm={2} md={2}>
-                                        <p>Borrar</p>
+                                        <IconButton aria-label="delete" onClick={() => this.borrar(value.index)} >
+                                            <DeleteIcon />
+                                        </IconButton>
 
                                     </GridItem>
                                     <GridItem xs={4} sm={4} md={4}>
@@ -137,8 +158,9 @@ class DropdownMenu extends Component {
 
                                     <GridItem xs={3} sm={3} md={3}>
                                         <TextField
-
+                                            size="small"
                                             defaultValue= {1}
+                                            variant="outlined"
                                             type="number"
                                             InputLabelProps={{
                                                 shrink: true,
@@ -149,8 +171,9 @@ class DropdownMenu extends Component {
                                     </GridItem>
                                     <GridItem xs={3} sm={3} md={3}>
                                         <TextField
-
+                                            size="small"
                                             defaultValue= {0}
+                                            variant="outlined"
                                             type="number"
                                             InputLabelProps={{
                                                 shrink: true,
@@ -164,10 +187,10 @@ class DropdownMenu extends Component {
 
                             ))}
 
+                        <Button variant="outlined" color="primary" onClick={() => this.anadirHabitacion()} >
+                            Añadir Habitación
+                        </Button>
 
-                        <div onClick={this.anadirHabitacion}>
-                            <p>Añadir Habitacion</p>
-                        </div>
 
 
 
@@ -200,6 +223,7 @@ DropdownMenu.propTypes = {
     anadirHabitacion:PropTypes.func,
     anadirNino : PropTypes.func,
     anadirAdulto: PropTypes.func,
+    borrar: PropTypes.func,
     numeroHabitaciones: PropTypes.number,
     numeroHuespedes: PropTypes.number
 };
