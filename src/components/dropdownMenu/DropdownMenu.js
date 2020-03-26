@@ -32,12 +32,11 @@ class DropdownMenu extends Component {
             super(props);
         this.state = {
             classes: "dropdown show",
-            habitaciones: this.props.habitaciones,
-            huepedes: this.props.numeroHuespedes,
-            numeroHabitaciones: this.props.numeroHabitaciones
+
 
 
         };
+
         this.handleClick = this.handleClick.bind(this);
         this.anadirHabitacion=this.anadirHabitacion.bind(this);
             this.anadirNino = this.anadirNino.bind(this);
@@ -55,31 +54,20 @@ class DropdownMenu extends Component {
 
         this.props.handleFixedClick();
     }
-    componentDidMount() {
-
-            this.setState({
-                habitaciones: this.props.habitaciones,
-                huepedes: this.props.numeroHuespedes,
-                numeroHabitaciones: this.props.numeroHabitaciones
-            });
 
 
 
-    }
+
+
     anadirHabitacion(){
         this.props.anadirHabitacion()
-        this.setState((state, props) => ({
-            huepedes: props.numeroHuespedes,
-            numeroHabitaciones: props.numeroHabitaciones
-        }));
+
 
     }
     anadirNino(index,nino){
         let numero = parseInt(nino)
         this.props.anadirNino(index,numero)
-        this.setState((state, props) => ({
-            huepedes: props.numeroHuespedes
-        }));
+
 
 
     }
@@ -88,9 +76,7 @@ class DropdownMenu extends Component {
 
         let numero = parseInt(adulto)
         this.props.anadirAdulto(index,numero)
-        this.setState((state, props) => ({
-            huepedes: props.numeroHuespedes
-        }));
+
 
     }
 
@@ -98,12 +84,16 @@ class DropdownMenu extends Component {
 
 
         this.props.borrar(index)
-        this.setState((state, props) => ({
-            huepedes: props.numeroHuespedes,
-            numeroHabitaciones: props.numeroHabitaciones
-        }));
 
 
+
+    }
+
+    componentDidUpdate(prevProps) {
+        // Uso tipico (no olvides de comparar los props):
+        if (this.props.userID !== prevProps.userID) {
+            this.fetchData(this.props.userID);
+        }
     }
 
     render() {
@@ -142,13 +132,14 @@ class DropdownMenu extends Component {
 
                             {
 
-                                this.state.habitaciones.map(value => (
+                                this.props.habitaciones.map(value => (
 
                                 <GridContainer>
                                     <GridItem xs={2} sm={2} md={2}>
+                                        { value.index !== 0 &&
                                         <IconButton aria-label="delete" onClick={() => this.borrar(value.index)} >
                                             <DeleteIcon />
-                                        </IconButton>
+                                        </IconButton>}
 
                                     </GridItem>
                                     <GridItem xs={4} sm={4} md={4}>

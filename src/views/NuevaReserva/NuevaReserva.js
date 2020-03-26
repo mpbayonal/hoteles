@@ -125,7 +125,8 @@ else{
 
 
 
-        setHabitacionesElegidas(y)
+        setHabitacionesElegidas(habitacionesElegidas => y)
+        console.log(habitacionesElegidas)
         setnumeroHabitaciones(habitacionesElegidas.length);
         calculoHabitacionesHuespedes()
 
@@ -172,6 +173,12 @@ else{
 
     };
 
+const borrar0 = async (index) => {
+    await setHabitacionesElegidas([]);
+    console.log(habitacionesElegidas)
+
+}
+
     const borrar = (index) => {
         console.log(index)
         let removed = []
@@ -183,18 +190,22 @@ else{
         {
             if(t < index)
             {
-            removed.push(habitacionesElegidas[t])
+            removed.push(habitacionesElegidas[t]);
+                setHabitacionesElegidas(removed);
+
                 t++;
             }
             else if(t === index)
-            {
+            { borrar0()
                 t++;
             }
             else if(t > index)
             {
                 removed.push(habitacionesElegidas[t])
 
+                console.log(habitacionesElegidas)
                 removed[t-1].index = t-1;
+                setHabitacionesElegidas(removed);
                 t++;
             }
 
@@ -204,9 +215,9 @@ else{
 
 
 
-    console.log(removed)
-        setHabitacionesElegidas([]);
-        setHabitacionesElegidas(removed);
+
+        setHabitacionesElegidas(habitacionesElegidas => removed)
+
     console.log(habitacionesElegidas)
         calculoHabitacionesHuespedes()
 
