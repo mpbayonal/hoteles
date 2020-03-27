@@ -87,14 +87,11 @@ class DropdownMenu extends Component {
 
 
 
+
+
     }
 
-    componentDidUpdate(prevProps) {
-        // Uso tipico (no olvides de comparar los props):
-        if (this.props.userID !== prevProps.userID) {
-            this.fetchData(this.props.userID);
-        }
-    }
+
 
     render() {
 
@@ -112,19 +109,16 @@ class DropdownMenu extends Component {
 
 
                         <GridContainer>
-                            <GridItem xs={2} sm={2} md={2}>
 
-
-                            </GridItem>
                             <GridItem xs={4} sm={4} md={4}>
                                 <p>Habitaciones</p>
 
                             </GridItem>
-                            <GridItem xs={3} sm={3} md={3}>
+                            <GridItem xs={4} sm={4} md={4}>
                                 <p>Adultos</p>
 
                             </GridItem>
-                            <GridItem xs={3} sm={3} md={3}>
+                            <GridItem xs={4} sm={4} md={4}>
                                 <p >Niños</p>
 
                             </GridItem>
@@ -135,19 +129,13 @@ class DropdownMenu extends Component {
                                 this.props.habitaciones.map(value => (
 
                                 <GridContainer>
-                                    <GridItem xs={2} sm={2} md={2}>
-                                        { value.index !== 0 &&
-                                        <IconButton aria-label="delete" onClick={() => this.borrar(value.index)} >
-                                            <DeleteIcon />
-                                        </IconButton>}
 
-                                    </GridItem>
                                     <GridItem xs={4} sm={4} md={4}>
                                         <p>Habitacion {value.index +1 }</p>
 
                                     </GridItem>
 
-                                    <GridItem xs={3} sm={3} md={3}>
+                                    <GridItem xs={4} sm={4} md={4}>
                                         <TextField
                                             size="small"
                                             defaultValue= {1}
@@ -160,7 +148,7 @@ class DropdownMenu extends Component {
                                         />
 
                                     </GridItem>
-                                    <GridItem xs={3} sm={3} md={3}>
+                                    <GridItem xs={4} sm={4} md={4}>
                                         <TextField
                                             size="small"
                                             defaultValue= {0}
@@ -178,9 +166,28 @@ class DropdownMenu extends Component {
 
                             ))}
 
-                        <Button variant="outlined" color="primary" onClick={() => this.anadirHabitacion()} >
-                            Añadir Habitación
-                        </Button>
+
+
+                        <GridContainer>
+                            <GridItem xs={6} sm={6} md={6}>
+                                { this.props.habitaciones.length !== 1 &&
+                                <Button variant="outlined" color="primary" onClick={() => this.borrar(this.props.habitaciones.length -1)} >
+                                    Borrar Habitación
+                                </Button>}
+                            </GridItem>
+
+                            <GridItem xs={6} sm={6} md={6}>
+                                <Button variant="outlined" color="primary" onClick={() => this.anadirHabitacion()} >
+                                    Añadir Habitación
+                                </Button>
+
+
+                            </GridItem>
+
+                        </GridContainer>
+
+
+
 
 
 

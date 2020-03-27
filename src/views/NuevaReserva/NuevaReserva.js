@@ -173,11 +173,7 @@ else{
 
     };
 
-const borrar0 = async (index) => {
-    await setHabitacionesElegidas([]);
-    console.log(habitacionesElegidas)
 
-}
 
     const borrar = (index) => {
         console.log(index)
@@ -192,11 +188,12 @@ const borrar0 = async (index) => {
             {
             removed.push(habitacionesElegidas[t]);
                 setHabitacionesElegidas(removed);
+                calculoHabitacionesHuespedes()
 
                 t++;
             }
             else if(t === index)
-            { borrar0()
+            {
                 t++;
             }
             else if(t > index)

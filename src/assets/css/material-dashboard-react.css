@@ -484,7 +484,7 @@ footer ul li a:hover {
   display: inline-block;
   z-index: 103100000000;
   position: absolute;
-  top: 46px;
+
   width: 16px;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
@@ -494,13 +494,14 @@ footer ul li a:hover {
 .fixed-plugin .dropdown.show .dropdown-menu {
   display: block;
   visibility: visible;
+  top: 139px;
   opacity: 1;
   z-index: 103100000000;
   -webkit-transform: translateY(20%);
   -moz-transform: translateY(40%);
   -o-transform: initial;
   -ms-transform: initial;
-  transform: translateY(40%);
+  transform: translateY(0%);
   transform-origin: 50% 50%;
 }
 .fixed-plugin.rtl-fixed-plugin {

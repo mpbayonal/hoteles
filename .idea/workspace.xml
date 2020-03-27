@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5a9e3444-21a3-4946-9c7b-cef432e97037" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/css/material-dashboard-react.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/material-dashboard-react.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/dropdownMenu/DropdownMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dropdownMenu/DropdownMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/NuevaReserva/NuevaReserva.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/NuevaReserva/NuevaReserva.js" afterDir="false" />
     </list>
@@ -104,7 +105,7 @@
       <workItem from="1584835530065" duration="24228000" />
       <workItem from="1584921015034" duration="46603000" />
       <workItem from="1585105190597" duration="483000" />
-      <workItem from="1585161181733" duration="9662000" />
+      <workItem from="1585161181733" duration="16239000" />
     </task>
     <servers />
   </component>
