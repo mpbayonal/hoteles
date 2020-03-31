@@ -1,224 +1,186 @@
+/*!
+
+=========================================================
+* Paper Dashboard React - v1.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/paper-dashboard-react
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+
+* Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard-react/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+*/
 import React from "react";
-import classNames from "classnames";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
-import Grow from "@material-ui/core/Grow";
-import Paper from "@material-ui/core/Paper";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Hidden from "@material-ui/core/Hidden";
-import Poppers from "@material-ui/core/Popper";
-import Divider from "@material-ui/core/Divider";
-// @material-ui/icons
-import Person from "@material-ui/icons/Person";
-import Notifications from "@material-ui/icons/Notifications";
-import Dashboard from "@material-ui/icons/Dashboard";
-import Search from "@material-ui/icons/Search";
-// core components
-import CustomInput from "components/CustomInput/CustomInput.js";
-import Button from "components/CustomButtons/Button.js";
 
-import styles from "assets/jss/material-dashboard-react/components/headerLinksStyle.js";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  Container,
+  InputGroup,
+  InputGroupText,
+  InputGroupAddon,
+  Input
+} from "reactstrap";
 
-const useStyles = makeStyles(styles);
 
-export default function AdminNavbarLinks() {
-  const classes = useStyles();
-  const [openNotification, setOpenNotification] = React.useState(null);
-  const [openProfile, setOpenProfile] = React.useState(null);
-  const handleClickNotification = event => {
-    if (openNotification && openNotification.contains(event.target)) {
-      setOpenNotification(null);
+
+class Header2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+      dropdownOpen: false,
+      color: "transparent"
+    };
+    this.toggle = this.toggle.bind(this);
+    this.dropdownToggle = this.dropdownToggle.bind(this);
+    this.sidebarToggle = React.createRef();
+  }
+  toggle() {
+    if (this.state.isOpen) {
+      this.setState({
+        color: "transparent"
+      });
     } else {
-      setOpenNotification(event.currentTarget);
+      this.setState({
+        color: "dark"
+      });
     }
-  };
-  const handleCloseNotification = () => {
-    setOpenNotification(null);
-  };
-  const handleClickProfile = event => {
-    if (openProfile && openProfile.contains(event.target)) {
-      setOpenProfile(null);
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+  dropdownToggle(e) {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
+  }
+
+  openSidebar() {
+    document.documentElement.classList.toggle("nav-open");
+    this.sidebarToggle.current.classList.toggle("toggled");
+  }
+  // function that adds color dark/transparent to the navbar on resize (this is for the collapse)
+  updateColor() {
+    if (window.innerWidth < 993 && this.state.isOpen) {
+      this.setState({
+        color: "dark"
+      });
     } else {
-      setOpenProfile(event.currentTarget);
+      this.setState({
+        color: "transparent"
+      });
     }
-  };
-  const handleCloseProfile = () => {
-    setOpenProfile(null);
-  };
-  return (
-    <div>
-      <div className={classes.searchWrapper}>
-        <CustomInput
-          formControlProps={{
-            className: classes.margin + " " + classes.search
-          }}
-          inputProps={{
-            placeholder: "Search",
-            inputProps: {
-              "aria-label": "Search"
+  }
+  componentDidMount() {
+    window.addEventListener("resize", this.updateColor.bind(this));
+  }
+  componentDidUpdate(e) {
+    if (
+        window.innerWidth < 993 &&
+        e.history.location.pathname !== e.location.pathname &&
+        document.documentElement.className.indexOf("nav-open") !== -1
+    ) {
+      document.documentElement.classList.toggle("nav-open");
+      this.sidebarToggle.current.classList.toggle("toggled");
+    }
+  }
+  render() {
+    return (
+        // add or remove classes depending if we are on full-screen-maps page or not
+        <Navbar
+            color={
+               this.state.color
             }
-          }}
-        />
-        <Button color="white" aria-label="edit" justIcon round>
-          <Search />
-        </Button>
-      </div>
-      <Button
-        color={window.innerWidth > 959 ? "transparent" : "white"}
-        justIcon={window.innerWidth > 959}
-        simple={!(window.innerWidth > 959)}
-        aria-label="Dashboard"
-        className={classes.buttonLink}
-      >
-        <Dashboard className={classes.icons} />
-        <Hidden mdUp implementation="css">
-          <p className={classes.linkText}>Dashboard</p>
-        </Hidden>
-      </Button>
-      <div className={classes.manager}>
-        <Button
-          color={window.innerWidth > 959 ? "transparent" : "white"}
-          justIcon={window.innerWidth > 959}
-          simple={!(window.innerWidth > 959)}
-          aria-owns={openNotification ? "notification-menu-list-grow" : null}
-          aria-haspopup="true"
-          onClick={handleClickNotification}
-          className={classes.buttonLink}
+            expand="lg"
+            className={
+
+                   "navbar-absolute fixed-top " +
+                  (this.state.color === "transparent" ? "navbar-transparent " : "")
+            }
         >
-          <Notifications className={classes.icons} />
-          <span className={classes.notifications}>5</span>
-          <Hidden mdUp implementation="css">
-            <p onClick={handleCloseNotification} className={classes.linkText}>
-              Notification
-            </p>
-          </Hidden>
-        </Button>
-        <Poppers
-          open={Boolean(openNotification)}
-          anchorEl={openNotification}
-          transition
-          disablePortal
-          className={
-            classNames({ [classes.popperClose]: !openNotification }) +
-            " " +
-            classes.popperNav
-          }
-        >
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              id="notification-menu-list-grow"
-              style={{
-                transformOrigin:
-                  placement === "bottom" ? "center top" : "center bottom"
-              }}
+          <Container fluid>
+            <div className="navbar-wrapper">
+              <div className="navbar-toggle">
+                <button
+                    type="button"
+                    ref={this.sidebarToggle}
+                    className="navbar-toggler"
+                    onClick={() => this.openSidebar()}
+                >
+                  <span className="navbar-toggler-bar bar1" />
+                  <span className="navbar-toggler-bar bar2" />
+                  <span className="navbar-toggler-bar bar3" />
+                </button>
+              </div>
+              <NavbarBrand href="/">kkk</NavbarBrand>
+            </div>
+            <NavbarToggler onClick={this.toggle}>
+              <span className="navbar-toggler-bar navbar-kebab" />
+              <span className="navbar-toggler-bar navbar-kebab" />
+              <span className="navbar-toggler-bar navbar-kebab" />
+            </NavbarToggler>
+            <Collapse
+                isOpen={this.state.isOpen}
+                navbar
+                className="justify-content-end"
             >
-              <Paper>
-                <ClickAwayListener onClickAway={handleCloseNotification}>
-                  <MenuList role="menu">
-                    <MenuItem
-                      onClick={handleCloseNotification}
-                      className={classes.dropdownItem}
-                    >
-                      Mike John responded to your email
-                    </MenuItem>
-                    <MenuItem
-                      onClick={handleCloseNotification}
-                      className={classes.dropdownItem}
-                    >
-                      You have 5 new tasks
-                    </MenuItem>
-                    <MenuItem
-                      onClick={handleCloseNotification}
-                      className={classes.dropdownItem}
-                    >
-                      You{"'"}re now friend with Andrew
-                    </MenuItem>
-                    <MenuItem
-                      onClick={handleCloseNotification}
-                      className={classes.dropdownItem}
-                    >
-                      Another Notification
-                    </MenuItem>
-                    <MenuItem
-                      onClick={handleCloseNotification}
-                      className={classes.dropdownItem}
-                    >
-                      Another One
-                    </MenuItem>
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Poppers>
-      </div>
-      <div className={classes.manager}>
-        <Button
-          color={window.innerWidth > 959 ? "transparent" : "white"}
-          justIcon={window.innerWidth > 959}
-          simple={!(window.innerWidth > 959)}
-          aria-owns={openProfile ? "profile-menu-list-grow" : null}
-          aria-haspopup="true"
-          onClick={handleClickProfile}
-          className={classes.buttonLink}
-        >
-          <Person className={classes.icons} />
-          <Hidden mdUp implementation="css">
-            <p className={classes.linkText}>Profile</p>
-          </Hidden>
-        </Button>
-        <Poppers
-          open={Boolean(openProfile)}
-          anchorEl={openProfile}
-          transition
-          disablePortal
-          className={
-            classNames({ [classes.popperClose]: !openProfile }) +
-            " " +
-            classes.popperNav
-          }
-        >
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              id="profile-menu-list-grow"
-              style={{
-                transformOrigin:
-                  placement === "bottom" ? "center top" : "center bottom"
-              }}
-            >
-              <Paper>
-                <ClickAwayListener onClickAway={handleCloseProfile}>
-                  <MenuList role="menu">
-                    <MenuItem
-                      onClick={handleCloseProfile}
-                      className={classes.dropdownItem}
-                    >
-                      Profile
-                    </MenuItem>
-                    <MenuItem
-                      onClick={handleCloseProfile}
-                      className={classes.dropdownItem}
-                    >
-                      Settings
-                    </MenuItem>
-                    <Divider light />
-                    <MenuItem
-                      onClick={handleCloseProfile}
-                      className={classes.dropdownItem}
-                    >
-                      Logout
-                    </MenuItem>
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Poppers>
-      </div>
-    </div>
-  );
+              <form>
+                <InputGroup className="no-border">
+                  <Input placeholder="Search..." />
+                  <InputGroupAddon addonType="append">
+                    <InputGroupText>
+                      <i className="nc-icon nc-zoom-split" />
+                    </InputGroupText>
+                  </InputGroupAddon>
+                </InputGroup>
+              </form>
+              <Nav navbar>
+                <NavItem>
+
+
+                </NavItem>
+                <Dropdown
+                    nav
+                    isOpen={this.state.dropdownOpen}
+                    toggle={e => this.dropdownToggle(e)}
+                >
+                  <DropdownToggle caret nav>
+                    <i className="nc-icon nc-bell-55" />
+                    <p>
+                      <span className="d-lg-none d-md-block">Some Actions</span>
+                    </p>
+                  </DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem tag="a">Action</DropdownItem>
+                    <DropdownItem tag="a">Another Action</DropdownItem>
+                    <DropdownItem tag="a">Something else here</DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
+                <NavItem>
+
+
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Container>
+        </Navbar>
+    );
+  }
 }
+
+export default Header2;

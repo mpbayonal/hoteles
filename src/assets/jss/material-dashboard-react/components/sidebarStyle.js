@@ -25,11 +25,19 @@ const sidebarStyle = theme => ({
     zIndex: "1",
     ...boxShadow,
     width: drawerWidth,
-    [theme.breakpoints.up("md")]: {
-      width: drawerWidth,
-      position: "fixed",
-      height: "100%"
-    },
+    [theme.breakpoints.up("md")]:
+        {
+          "active": {
+            width: drawerWidth,
+            position: "fixed",
+            height: "100%"
+          },
+          "other": {
+            width: "80px",
+            position: "fixed",
+            height: "100%"
+          }
+        },
     [theme.breakpoints.down("sm")]: {
       width: drawerWidth,
       ...boxShadow,
