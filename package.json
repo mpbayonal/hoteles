@@ -10,7 +10,7 @@
     "@material-ui/icons": "4.2.1",
     "@material-ui/pickers": "^3.2.10",
     "@trendmicro/react-dropdown": "^1.4.0",
-    "async": "^2.1.4",
+    "async": "^2.6.4",
     "axios": "^0.19.2",
     "chartist": "0.10.1",
     "classnames": "2.2.6",
